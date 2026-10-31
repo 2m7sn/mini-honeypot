@@ -1,0 +1,29 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "mini-honeypot"
+version = "0.1.0"
+description = "Low-interaction honeypot + seeded attack replayer + SOC alert pipeline"
+readme = "README.md"
+requires-python = ">=3.13"
+license = { text = "MIT" }
+authors = [{ name = "Abdulmohsen Alharbi" }]
+keywords = ["honeypot", "soc", "blue-team", "attack", "detection"]
+dependencies = []
+
+[project.optional-dependencies]
+dev = ["pytest>=8"]
+
+[project.scripts]
+honeypot = "honeypot.server:run"
+honeypot-replay = "honeypot.replayer:run"
+honeypot-pipeline = "honeypot.pipeline:run"
+honeypot-report = "honeypot.report:run"
+
+[tool.setuptools]
+packages = ["honeypot"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
